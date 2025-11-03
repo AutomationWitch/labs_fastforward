@@ -48,15 +48,25 @@ virsh start bootc-vm
 In **Terminal**
 
 ```bash
+cat << EOF > Containerfile
+FROM registry.redhat.io/rhel10/rhel-bootc:10.0
+ADD etc /etc
+RUN dnf install -y httpd vim
+RUN systemctl enable httpd
+EOF
 
-
+podman build -t $REGISTRY/test-bootc .
+podman push $REGISTRY/test-bootc
 ```
 
 ### Stage 4 : Redeployment
 
-In **Terminal**
+In **VM SSH Session**
 
 ```bash
+sudo bootc upgrade
 
+echo 'core:1redhat' | sudo chpasswd
 
+sudo reboot
 ```
