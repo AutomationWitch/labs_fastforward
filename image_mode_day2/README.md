@@ -47,7 +47,7 @@ sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo boot
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
-### Stage 3 : Local state vs Image state
+### Stage 3 : Rollback
 
 In **Terminal**
 
@@ -56,7 +56,7 @@ sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo boot
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
-### Stage 4 : Rollback
+### Stage 4 : Local state vs Image state
 
 In **Terminal**
 
