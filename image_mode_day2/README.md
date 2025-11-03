@@ -25,7 +25,7 @@ sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo boot
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
-### Stage  : Tags
+### Stage 2 : Tags
 
 In **Terminal**
 
@@ -45,4 +45,22 @@ podman push $REGISTRY/test-bootc:dev
 
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch rhel.arkwksngzedu.instruqt.io:5000/test-bootc:v2
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
+```
+
+### Stage 3 : Local state vs Image state
+
+In **Terminal**
+
+```bash
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc rollback
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
+```
+
+### Stage 4 : Rollback
+
+In **Terminal**
+
+```bash
+podman run --rm $REGISTRY/test-bootc:v2 ls /var/www/html
+
 ```
