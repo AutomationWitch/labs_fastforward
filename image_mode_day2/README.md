@@ -43,7 +43,7 @@ podman image tag $REGISTRY/test-bootc:v2 $REGISTRY/test-bootc:dev
 podman push $REGISTRY/test-bootc:v2
 podman push $REGISTRY/test-bootc:dev
 
-sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch rhel.arkwksngzedu.instruqt.io:5000/test-bootc:v2
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch $REGISTRY/test-bootc:v2
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
