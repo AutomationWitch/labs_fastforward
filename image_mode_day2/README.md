@@ -2,7 +2,7 @@
 
 ## Instruqt Track
 
-Access the lab at https://www.redhat.com/en/day-2-operations-with-image-mode-for-red-hat-enterprise-linux
+Access the lab at [red.ht/im-day2](red.ht/im-day2)
 
 ## Solution
 
