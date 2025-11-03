@@ -61,6 +61,6 @@ sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo rebo
 In **Terminal**
 
 ```bash
-podman run --rm $REGISTRY/test-bootc:v2 ls /var/www/html
-
+podman build -t rhel.sxbzwxszn0r8.instruqt.io:5000/test-bootc:v3 -f Containerfile.index
+podman push rhel.sxbzwxszn0r8.instruqt.io:5000/test-bootc:v3
 ```
