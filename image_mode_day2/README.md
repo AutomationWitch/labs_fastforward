@@ -25,4 +25,5 @@ podman build -t $REGISTRY/test-bootc:el10 .
 podman push $REGISTRY/test-bootc:el10
 
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch $REGISTRY/test-bootc:el10
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
