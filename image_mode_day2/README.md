@@ -39,7 +39,7 @@ RUN echo "New application coming soon!" > /var/www/html/index.html
 EOF
 
 podman build -t $REGISTRY/test-bootc:v2 .
-podman image tag $REGISTRY/test-bootc:v2 rhel.$REGISTRY/test-bootc:dev
+podman image tag $REGISTRY/test-bootc:v2 $REGISTRY/test-bootc:dev
 podman push $REGISTRY/test-bootc:v2
 podman push $REGISTRY/test-bootc:dev
 
