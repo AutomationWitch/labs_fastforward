@@ -18,10 +18,10 @@ RUN dnf install -y httpd vim
 RUN systemctl enable httpd
 EOF
 
-podman build -t $REGISTRY/test-bootc:el10 .
-podman push $REGISTRY/test-bootc:el10
+podman build -t ${REGISTRY}/test-bootc:el10 .
+podman push ${REGISTRY}/test-bootc:el10
 
-sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch $REGISTRY/test-bootc:el10
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch ${REGISTRY}/test-bootc:el10
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
@@ -38,12 +38,12 @@ RUN systemctl enable httpd
 RUN echo "New application coming soon!" > /var/www/html/index.html
 EOF
 
-podman build -t $REGISTRY/test-bootc:v2 .
-podman image tag $REGISTRY/test-bootc:v2 $REGISTRY/test-bootc:dev
-podman push $REGISTRY/test-bootc:v2
-podman push $REGISTRY/test-bootc:dev
+podman build -t ${REGISTRY}/test-bootc:v2 .
+podman image tag ${REGISTRY}/test-bootc:v2 ${REGISTRY}/test-bootc:dev
+podman push ${REGISTRY}/test-bootc:v2
+podman push ${REGISTRY}/test-bootc:dev
 
-sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch $REGISTRY/test-bootc:v2
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch ${REGISTRY}/test-bootc:v2
 sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo reboot
 ```
 
@@ -61,8 +61,8 @@ sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo rebo
 In **Terminal**
 
 ```bash
-podman build -t $REGISTRY/test-bootc:v3 -f Containerfile.index
-podman push $REGISTRY/test-bootc:v3
+podman build -t ${REGISTRY}/test-bootc:v3 -f Containerfile.index
+podman push ${REGISTRY}/test-bootc:v3
 
-sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch $REGISTRY/test-bootc:v3
+sshpass -p redhat ssh  -o StrictHostKeyChecking=no core@192.168.122.78 sudo bootc switch ${REGISTRY}/test-bootc:v3
 ```
