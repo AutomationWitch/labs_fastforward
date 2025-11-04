@@ -11,8 +11,8 @@ Access the lab at [red.ht/im-basics]([red.ht/im-basics](https://play.instruqt.co
 In **Terminal**
 
 ```bash
-podman build -t $REGISTRY/test-bootc .
-podman push $REGISTRY/test-bootc
+podman build -t ${REGISTRY}/test-bootc .
+podman push ${REGISTRY}/test-bootc
 ```
 
 ### Stage 2 : Deployment
@@ -27,7 +27,7 @@ podman run --rm --privileged \
         registry.redhat.io/rhel10/bootc-image-builder:10.0 \
         --type qcow2 \
         --config config.json \
-         $REGISTRY/test-bootc
+         ${REGISTRY}/test-bootc
 
 cp qcow2/disk.qcow2 /var/lib/libvirt/images/bootc10.0-vm.qcow2
 
@@ -55,8 +55,8 @@ RUN dnf install -y httpd vim
 RUN systemctl enable httpd
 EOF
 
-podman build -t $REGISTRY/test-bootc .
-podman push $REGISTRY/test-bootc
+podman build -t ${REGISTRY}/test-bootc .
+podman push ${REGISTRY}/test-bootc
 ```
 
 ### Stage 4 : Redeployment
